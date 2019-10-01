@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="thas01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="THAS_ExcelExport_WIPEvaluationReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="THAS" />
+        <EntityContainer Name="thas01ModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="thas01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="thas01ReportEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="THAS_ExcelExport_WIPEvaluationReport" ReturnType="Collection(thas01Model.THAS_ExcelExport_WIPEvaluationReport_Result)" />
+        </EntityContainer>
+        <ComplexType Name="THAS_ExcelExport_WIPEvaluationReport_Result">
+          <Property Type="String" Name="WorksOrderNumber" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="WorksOrderSuffix" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="PartNumber" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="PartDescription" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="MethodVersion" Nullable="false" MaxLength="151" />
+          <Property Type="Decimal" Name="BatchQuantity" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="WIPQuantity" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="PlannedMaterialCost1" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="PlannedSubcontractCost1" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="PlannedRunCost1" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="PlannedSetCost1" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="ActualMaterialCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="ActualSubcontractCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="ActualRunCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="ActualSetCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="PeriodNumber" Nullable="true" />
+          <Property Type="DateTime" Name="Expr1" Nullable="false" Precision="23" />
+          <Property Type="String" Name="CurrencyCode" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="LowerMaterialCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="LowerSubcontractCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="LowerRunCost" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="LowerSetCost" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="thas01ModelStoreContainer" CdmEntityContainer="thas01ReportEntities" >
+          <FunctionImportMapping FunctionImportName="THAS_ExcelExport_WIPEvaluationReport" FunctionName="thas01Model.Store.THAS_ExcelExport_WIPEvaluationReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="thas01Model.THAS_ExcelExport_WIPEvaluationReport_Result">
+                <ScalarProperty Name="WorksOrderNumber" ColumnName="WorksOrderNumber" />
+                <ScalarProperty Name="WorksOrderSuffix" ColumnName="WorksOrderSuffix" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="PartDescription" ColumnName="PartDescription" />
+                <ScalarProperty Name="MethodVersion" ColumnName="MethodVersion" />
+                <ScalarProperty Name="BatchQuantity" ColumnName="BatchQuantity" />
+                <ScalarProperty Name="WIPQuantity" ColumnName="WIPQuantity" />
+                <ScalarProperty Name="PlannedMaterialCost1" ColumnName="PlannedMaterialCost1" />
+                <ScalarProperty Name="PlannedSubcontractCost1" ColumnName="PlannedSubcontractCost1" />
+                <ScalarProperty Name="PlannedRunCost1" ColumnName="PlannedRunCost1" />
+                <ScalarProperty Name="PlannedSetCost1" ColumnName="PlannedSetCost1" />
+                <ScalarProperty Name="ActualMaterialCost" ColumnName="ActualMaterialCost" />
+                <ScalarProperty Name="ActualSubcontractCost" ColumnName="ActualSubcontractCost" />
+                <ScalarProperty Name="ActualRunCost" ColumnName="ActualRunCost" />
+                <ScalarProperty Name="ActualSetCost" ColumnName="ActualSetCost" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="PeriodNumber" ColumnName="PeriodNumber" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="LowerMaterialCost" ColumnName="LowerMaterialCost" />
+                <ScalarProperty Name="LowerSubcontractCost" ColumnName="LowerSubcontractCost" />
+                <ScalarProperty Name="LowerRunCost" ColumnName="LowerRunCost" />
+                <ScalarProperty Name="LowerSetCost" ColumnName="LowerSetCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
